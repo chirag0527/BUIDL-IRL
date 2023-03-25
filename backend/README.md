@@ -27,11 +27,11 @@ In this tutorial we will be building an NFT collection on Polygon Mumbai Testnet
 ## Let's start building
 
 ### 1. Setting up the project
-- Fork the Git Repo
-![Screenshot 2023-03-18 at 12 12 41 PM](https://user-images.githubusercontent.com/79016290/226089900-69f45efe-f521-4c39-a8cc-41d6dcade675.png)
-THEN
-![Screenshot 2023-03-18 at 12 19 33 PM](https://user-images.githubusercontent.com/79016290/226090248-057cb68c-3fb6-4194-941e-c33b2648c0d9.png)
 
+- Fork the Git Repo
+  ![Screenshot 2023-03-18 at 12 12 41 PM](https://user-images.githubusercontent.com/79016290/226089900-69f45efe-f521-4c39-a8cc-41d6dcade675.png)
+  THEN
+  ![Screenshot 2023-03-18 at 12 19 33 PM](https://user-images.githubusercontent.com/79016290/226090248-057cb68c-3fb6-4194-941e-c33b2648c0d9.png)
 
 - Open your terminal and run the following commands
   - `git clone https://github.com/{username}/BUIDL-IRL.git`
@@ -155,11 +155,12 @@ This function takes an address and the token URI as parameters. The `to` is the 
 
 - Let's write the function to transfer NFT
 
-````solidity
+```solidity
 function transfer(address to, uint256 tokenId) external {
         safeTransferFrom(msg.sender, to, tokenId);
     }
 ```
+
 This function is to transfer the NFT from one address to another. It takes the address of the receiver and the tokenId of the NFT as parameters. The `safeTransferFrom` function is provided by the `ERC721` contract and is used to transfer the NFT from one address to another. The `msg.sender` is used to get the address of the caller of the function.
 
 - Let's write the overrides functions
@@ -178,7 +179,7 @@ This function is to transfer the NFT from one address to another. It takes the a
     }
 
 
-````
+```
 
 These override functions are required by the solidity compiler to work properly. The `_burn` function is used to burn the NFT and the `tokenURI` function is used to get the token URI of the NFT. We are overriding these functions to use the functions of the `ERC721URIStorage` contract. The `super` keyword is used to call the functions of the parent contract.
 
